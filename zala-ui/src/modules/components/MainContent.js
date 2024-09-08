@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
+
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
@@ -16,6 +18,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from '@mui/material/styles';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import RssFeedRoundedIcon from '@mui/icons-material/RssFeedRounded';
+import { contract } from '../../dataproviders/zalacontract';
 
 const cardData = [
   {
@@ -89,6 +92,36 @@ export function Search() {
 
 export default function MainContent() {
   const [focusedCardIndex, setFocusedCardIndex] = React.useState(null);
+  const [cardData, setCardData] = React.useState([]);
+  
+  useEffect(() => {
+    async function getUserGoals(address, businessId) {
+        let goals = []
+        let goal_items = []
+        try {
+          goal_items = await contract.getUserGoals(address);
+        } catch (e) {
+            console.error(e);
+            return;
+        }
+        goal_items.forEach((goal) => {
+          goals.push({
+            id: goal.ID.toString(),
+            img: 'https://picsum.photos/800/450?seed='+goal.kind,
+            kind: goal.kind,
+            stakeAmount: (goal.stakeAmount/10**18).toString()+'eth',
+            name: goal.name,
+            description: '',
+            startTs: new Date(goal.startDateTime.toNumber()* 1000).toString(),
+            endTs: new Date(goal.endDateTime.toNumber()* 1000).toString(),
+          });
+        });
+        setCardData(goals);
+    }
+
+    getUserGoals("0x44AC194359fA44eCe6Cb2E53E8c90547BCCb95a0");
+  }, []);
+
 
   const handleFocus = (index) => {
     setFocusedCardIndex(index);
@@ -174,17 +207,17 @@ export default function MainContent() {
                     aspectRatio: { sm: '16 / 9', md: '' },
                   }}
                 />
-                <SyledCardContent>
-                  <Typography gutterTop variant="h2" component="div" style={{marginTop: "-100px"}}>
-                    {card.stakeAmount}
-                  </Typography>
-                  <Typography gutterBottom variant="caption" component="div">
+                <SyledCardContent style={{marginTop: "0px"}}>
+                  <Typography variant="caption" component="div">
                     {card.kind}
                   </Typography>
-                  <Typography gutterBottom variant="h6" component="div">
+                  <Typography variant="h3" component="div">
                     {card.name}
                   </Typography>
-                  <StyledTypography variant="caption" color="text.secondary" gutterBottom>
+                  <Typography variant="h6" component="div">
+                    {card.stakeAmount}
+                  </Typography>
+                  <StyledTypography variant="caption" color="text.secondary">
                     {card.startTs} - {card.endTs}
                   </StyledTypography>
                 </SyledCardContent>

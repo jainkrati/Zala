@@ -26,6 +26,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundImage: 'none',
   zIndex: theme.zIndex.drawer + 1,
   flex: '0 0 auto',
+  fontFamily: 'sans-serif',
 }));
 
 function TemplateFrame({

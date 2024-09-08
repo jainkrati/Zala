@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './index.css';
-import Blog from './Blog/Blog';
+import Blog from './modules/Blog';
 
 export default function App() {
   return (

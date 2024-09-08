@@ -19,6 +19,7 @@ import { styled } from '@mui/material/styles';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import RssFeedRoundedIcon from '@mui/icons-material/RssFeedRounded';
 import { contract } from '../../dataproviders/zalacontract';
+import ConnectWallet from './ConnectWallet';
 
 const cardData = [
   {
@@ -93,6 +94,10 @@ export function Search() {
 export default function MainContent() {
   const [focusedCardIndex, setFocusedCardIndex] = React.useState(null);
   const [cardData, setCardData] = React.useState([]);
+  const [connectedWalletAddress, setConnectedWalletAddress] = React.useState(
+    null,
+  );
+
   
   useEffect(() => {
     async function getUserGoals(address, businessId) {
@@ -152,6 +157,9 @@ export default function MainContent() {
           overflow: 'auto',
         }}
       >
+        <ConnectWallet
+          connectedWalletAddress={connectedWalletAddress}
+          setConnectedWalletAddress={setConnectedWalletAddress}/>
         <Search />
       </Box>
       <Box
@@ -183,6 +191,10 @@ export default function MainContent() {
             overflow: 'auto',
           }}
         >
+          <ConnectWallet
+            connectedWalletAddress={connectedWalletAddress}
+            setConnectedWalletAddress={setConnectedWalletAddress}/>
+
           <Search />
         </Box>
       </Box>

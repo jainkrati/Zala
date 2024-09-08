@@ -13,6 +13,7 @@ import getBlogTheme from './theme/getBlogTheme';
 export default function Blog() {
   const [mode, setMode] = React.useState('light');
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+
   const blogTheme = createTheme(getBlogTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
   // This code only runs on the client side, to determine the system color preference
@@ -55,7 +56,7 @@ export default function Blog() {
           component="main"
           sx={{ display: 'flex', flexDirection: 'column', my: 4, gap: 4 }}
         >
-          <MainContent />
+          <MainContent/>
           {/* <Latest /> */}
         </Container>
         {/* <Footer /> */}

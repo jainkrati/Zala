@@ -1,15 +1,31 @@
-# Blog template
+# Base UI - Create React App example in TypeScript
 
-## Usage
+[Base UI](https://mui.com/base-ui/) is a library of unstyled React UI components and hooks.
 
-<!-- #default-branch-switch -->
+[Create React App](https://create-react-app.dev/) is a framework for quickly creating a new React project without the need to configure complex build tools or development environments.
 
-1. Copy the files into your project, or one of the [example projects](https://github.com/mui/material-ui/tree/master/examples).
-2. Make sure your project has the required dependencies: @mui/material, @mui/icons-material, @emotion/styled, @emotion/react, markdown-to-jsx.
-3. Import and use the `Blog` component.
+## How to use
 
-## Demo
+Download the example [or clone the repo](https://github.com/mui/material-ui):
 
 <!-- #default-branch-switch -->
 
-View the demo at https://mui.com/material-ui/getting-started/templates/blog/.
+```bash
+curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/base-ui-cra-ts
+cd base-ui-cra-ts
+```
+
+Install it and run:
+
+```bash
+npm install
+npm start
+```
+
+or:
+
+<!-- #default-branch-switch -->
+
+[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/base-ui-cra-ts)
+
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/sandbox/github/mui/material-ui/tree/master/examples/base-ui-cra-ts)

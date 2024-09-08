@@ -49,16 +49,16 @@ export default function Blog() {
     >
       <ThemeProvider theme={showCustomTheme ? blogTheme : defaultTheme}>
         <CssBaseline enableColorScheme />
-        <AppAppBar />
+        {/* <AppAppBar /> */}
         <Container
           maxWidth="lg"
           component="main"
-          sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+          sx={{ display: 'flex', flexDirection: 'column', my: 4, gap: 4 }}
         >
           <MainContent />
-          <Latest />
+          {/* <Latest /> */}
         </Container>
-        <Footer />
+        {/* <Footer /> */}
       </ThemeProvider>
     </TemplateFrame>
   );

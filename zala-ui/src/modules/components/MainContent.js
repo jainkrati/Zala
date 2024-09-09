@@ -19,7 +19,7 @@ import { styled } from '@mui/material/styles';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import RssFeedRoundedIcon from '@mui/icons-material/RssFeedRounded';
 import { contract } from '../../dataproviders/zalacontract';
-import ConnectWallet from 'ConnectWallet';
+import ConnectWallet from './ConnectWallet';
 
 const cardData = [
   {

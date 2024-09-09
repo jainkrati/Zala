@@ -9,10 +9,14 @@ import Footer from './components/Footer';
 import TemplateFrame from './TemplateFrame';
 
 import getApplicationTheme from './theme/getApplicationTheme';
+import { Typography } from '@mui/material';
 
 export default function ApplicationContainer() {
   const [mode, setMode] = React.useState('light');
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+  const [connectedWalletAddress, setConnectedWalletAddress] = React.useState(
+    null,
+  );
 
   const blogTheme = createTheme(getApplicationTheme(mode));
   const defaultTheme = createTheme({ palette: { mode } });
@@ -47,6 +51,8 @@ export default function ApplicationContainer() {
       showCustomTheme={showCustomTheme}
       mode={mode}
       toggleColorMode={toggleColorMode}
+      connectedWalletAddress={connectedWalletAddress}
+      setConnectedWalletAddress={setConnectedWalletAddress}
     >
       <ThemeProvider theme={showCustomTheme ? blogTheme : defaultTheme}>
         <CssBaseline enableColorScheme />
@@ -56,7 +62,17 @@ export default function ApplicationContainer() {
           component="main"
           sx={{ display: 'flex', flexDirection: 'column', my: 4, gap: 4 }}
         >
-          <MainContent/>
+          <div>
+            <Typography variant="h1" gutterBottom>
+              Plan, Invest, Achieve
+            </Typography>
+            <Typography>What goal you want to achieve today?</Typography>
+          </div>
+
+          { connectedWalletAddress ? 
+            <MainContent connectedWalletAddress={connectedWalletAddress}/>
+            : <Typography variant='h4' align='center' marginTop="100px">Connect your Wallet to continue</Typography>
+          }
           {/* <Latest /> */}
         </Container>
         {/* <Footer /> */}

@@ -12,6 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ToggleColorMode from './components/ToggleColorMode';
 import getApplicationTheme from './theme/getApplicationTheme';
+import ConnectWallet from './components/ConnectWallet';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'relative',
@@ -35,6 +36,8 @@ function TemplateFrame({
   mode,
   toggleColorMode,
   children,
+  connectedWalletAddress,
+  setConnectedWalletAddress,
 }) {
   const handleChange = (event) => {
     toggleCustomTheme(event.target.value === 'custom');
@@ -62,6 +65,11 @@ function TemplateFrame({
                 toggleColorMode={toggleColorMode}
               />
             </Box>
+            <FormControl>
+            <ConnectWallet
+              connectedWalletAddress={connectedWalletAddress}
+              setConnectedWalletAddress={setConnectedWalletAddress}/>
+            </FormControl>
           </Toolbar>
         </StyledAppBar>
         <Box sx={{ flex: '1 1', overflow: 'auto' }}>{children}</Box>

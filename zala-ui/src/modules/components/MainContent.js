@@ -91,12 +91,11 @@ export function Search() {
   );
 }
 
-export default function MainContent() {
+export default function MainContent({
+  connectedWalletAddress,
+}) {
   const [focusedCardIndex, setFocusedCardIndex] = React.useState(null);
   const [cardData, setCardData] = React.useState([]);
-  const [connectedWalletAddress, setConnectedWalletAddress] = React.useState(
-    null,
-  );
 
   
   useEffect(() => {
@@ -142,12 +141,6 @@ export default function MainContent() {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <div>
-        <Typography variant="h1" gutterBottom>
-          Plan, Invest, Achieve
-        </Typography>
-        <Typography>What goal you want to achieve today?</Typography>
-      </div>
       <Box
         sx={{
           display: { xs: 'flex', sm: 'none' },
@@ -157,9 +150,6 @@ export default function MainContent() {
           overflow: 'auto',
         }}
       >
-        <ConnectWallet
-          connectedWalletAddress={connectedWalletAddress}
-          setConnectedWalletAddress={setConnectedWalletAddress}/>
         <Search />
       </Box>
       <Box
@@ -191,10 +181,6 @@ export default function MainContent() {
             overflow: 'auto',
           }}
         >
-          <ConnectWallet
-            connectedWalletAddress={connectedWalletAddress}
-            setConnectedWalletAddress={setConnectedWalletAddress}/>
-
           <Search />
         </Box>
       </Box>

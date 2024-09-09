@@ -19,7 +19,7 @@ import { styled } from '@mui/material/styles';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import RssFeedRoundedIcon from '@mui/icons-material/RssFeedRounded';
 import { contract } from '../../dataproviders/zalacontract';
-import ConnectWallet from './ConnectWallet';
+import ConnectWallet from 'ConnectWallet';
 
 const cardData = [
   {
@@ -112,7 +112,7 @@ export default function MainContent() {
         goal_items.forEach((goal) => {
           goals.push({
             id: goal.ID.toString(),
-            img: 'https://picsum.photos/800/450?seed='+goal.kind,
+            img: 'https://picsum.photos/seed/'+goal.name+'/800/450',
             kind: goal.kind,
             stakeAmount: (goal.stakeAmount/10**18).toString()+'eth',
             name: goal.name,

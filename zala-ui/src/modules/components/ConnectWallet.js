@@ -8,7 +8,7 @@ export default function ConnectWallet({
     connectedWalletAddress,
     setConnectedWalletAddress,
 }) {
-    const [connected, setConnected] = React.useState(true);
+    const [connected, setConnected] = React.useState(connectedWalletAddress !== null);
 
     async function connectWallet() {
         if (window.ethereum) {
@@ -17,7 +17,6 @@ export default function ConnectWallet({
         } else {
             console.error("Please Install Metamask!!!");
         }
-
     }
     
     return (

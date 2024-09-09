@@ -2,13 +2,13 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AppAppBar from './components/AppAppBar';
-import MainContent from './components/MainContent';
-import Latest from './components/Latest';
-import Footer from './components/Footer';
-import TemplateFrame from './TemplateFrame';
+import AppAppBar from 'components/AppAppBar';
+import MainContent from 'components/MainContent';
+import Latest from 'components/Latest';
+import Footer from 'components/Footer';
+import TemplateFrame from 'TemplateFrame';
 
-import getBlogTheme from './theme/getBlogTheme';
+import getBlogTheme from 'theme/getBlogTheme';
 
 export default function Blog() {
   const [mode, setMode] = React.useState('light');
